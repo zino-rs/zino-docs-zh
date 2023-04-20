@@ -1,6 +1,14 @@
 [book]
+title = "Zino开发框架中文教程"
 authors = ["photino"]
 language = "zh"
 multilingual = false
 src = "src"
-title = "Zino开发框架中文教程"
+
+[rust]
+edition = "2021"
+
+[output.html]
+additional-css = ["theme/style.css"]
+git-repository-url = "https://github.com/photino/zino-docs-zh"
+edit-url-template = "https://github.com/photino/zino-docs-zh/edit/main/{path}"
