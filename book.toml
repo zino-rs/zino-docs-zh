@@ -1,0 +1,6 @@
+[book]
+authors = ["photino"]
+language = "zh"
+multilingual = false
+src = "src"
+title = "Zino开发框架中文教程"
