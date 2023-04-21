@@ -28,6 +28,9 @@ axum-app
 │  │  ├─ task.rs
 │  │  └─ user.rs
 │  ├─ main.rs
+│  ├─ middleware
+│  │  ├─ mod.rs
+│  │  └─ access.rs
 │  ├─ router
 │  │  └─ mod.rs
 │  ├─ schedule
@@ -50,6 +53,7 @@ axum-app
 * `logs/`用于日志文件输出。
 * `src/controller/`用于编写控制器。
 * `src/main.rs`用于启动应用。
+* `src/middleware/`用于编写中间件。
 * `src/router/`用于配置URL路由规则。
 * `src/schedule/`用于编写定时任务。
 * `src/service/`用于编写业务逻辑层。

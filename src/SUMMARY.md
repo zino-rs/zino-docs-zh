@@ -19,7 +19,7 @@
   - [身份认证](./advanced/authentication.md)
   - [调度任务](./advanced/schedule.md)
   - [消息订阅](./advanced/channel.md)
-  - [可观察性](./advanced/trace.md)
+  - [可观测性](./advanced/trace.md)
   - [辅助函数](./advanced/extension.md)
 - [可选功能](./features.md)
   - [ORM](./features/orm.md)
