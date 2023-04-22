@@ -2,8 +2,9 @@
 
 - [引言](./introduction.md)
 - [入门指南](./guide.md)
-  - [创建项目](./guide/new-project.md)
+  - [创建应用](./guide/new-app.md)
   - [目录结构](./guide/structure.md)
+  - [配置文件](./guide/config.md)
   - [开发测试](./guide/development.md)
   - [应用部署](./guide/deployment.md)
 - [基础功能](./basics.md)
