@@ -3,7 +3,7 @@
 Zino开发框架采用了类似于[Egg.js][eggjs-structure]的应用目录约定规范：
 
 ```shell
-axum-app
+zino-app
 ├─ Cargo.toml
 ├─ config
 │  ├─ config.dev.toml
@@ -25,6 +25,10 @@ axum-app
 │  ├─ controller
 │  │  ├─ mod.rs
 │  │  ├─ stats.rs
+│  │  ├─ task.rs
+│  │  └─ user.rs
+│  ├─ logic
+│  │  ├─ mod.rs
 │  │  ├─ task.rs
 │  │  └─ user.rs
 │  ├─ main.rs
@@ -52,11 +56,12 @@ axum-app
 * `logs/`用于日志文件输出。
 * `public/`为通过网络访问的静态资源目录，`index.html`为默认首页文件，`404.html`为404文件，`data/`为共享的数据目录。
 * `src/controller/`用于编写控制器。
+* `src/logic/`用于编写业务逻辑，供`service`、`schedule`调用。
 * `src/main.rs`用于启动应用。
 * `src/middleware/`用于编写中间件。
 * `src/router/`用于配置URL路由规则。
 * `src/schedule/`用于编写定时任务。
-* `src/service/`用于编写业务逻辑层。
+* `src/service/`用于编写业务接口服务，供`controller`调用。
 * `templates/`用于编写HTML模板文件（目前仅支持Tera模板）。
 
 [eggjs-structure]: https://www.eggjs.org/zh-CN/basics/structure
