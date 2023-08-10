@@ -74,6 +74,9 @@ app-name = "data-cube"
 通过调用不同配置文件切换开发环境
 
 ```bash
+# 注意使用ZINO_APP_ENV 也可以获取环境变量
+# 其中环境变量--env 优先于ZINO_APP_ENV，最后才会读取默认值dev
+  
 cargo run -- --env=dev # 开发环境
 cargo run -- --env=prod # 生产环境
 ```
