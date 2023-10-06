@@ -1,0 +1,38 @@
+<svg width="1428" height="1428" viewBox="0 0 1428 1428" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="leftGradient">
+      <stop offset="0%" stop-color="#2696E3"/>
+      <stop offset="100%" stop-color="#0378D3"/>
+    </linearGradient>
+    <linearGradient id="middleGradient" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#3ACBF2"/>
+      <stop offset="100%" stop-color="#2495DE"/>
+    </linearGradient>
+    <linearGradient id="rightGradient">
+      <stop offset="0%" stop-color="#0378D3"/>
+      <stop offset="100%" stop-color="#2696E3"/>
+    </linearGradient>
+  </defs>
+  <g stroke="none" fill ="none">
+    <rect x="0" y="13" width="1427" height="1401"/>
+    <path d="M 427,13 L 809,13 L 500,548 L 118,546 Z"/>
+    <path d="M 809,13 L 1427,13 L 618,1414 L 0,1414 Z"/>
+    <path d="M 618,1414 L 1000,1414 L 1309,878 L 927,878 Z"/>
+  </g>
+  <g stroke="none" fill="url(#leftGradient)">
+    <path d="M 573,13 A 136 136 120 0 1 691,217
+      L 500,548 L 208,546 A 52 52 120 0 1 163,468
+      L 382,91 A 156 156 120 0 1 517,13 Z"/>
+  </g>
+  <g stroke="none" fill="url(#middleGradient)">
+    <path d="M 1191,13 A 136 136 120 0 1 1309,217
+      L 736,1210 A 136 136 60 0 0 854,1414
+      L 204,1414 A 136 136 120 0 1 118,1210
+      L 691,217 A 136 136 60 0 0 573,13 Z"/>
+  </g>
+  <g stroke="none" fill="url(#rightGradient)">
+    <path d="M 736,1210 A 136 136 60 0 0 854,1414 
+      L 910,1414 A 156 156 120 0 0 1045,1336
+      L 1264,956 A 52 52 60 0 0 1219,878 L 927,878 Z"/>
+  </g>
+</svg>
