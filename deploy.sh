@@ -3,6 +3,8 @@ mdbook build
 
 ## init git repo
 cd book
+mkdir assets
+cp ../assets/** assets/
 git init
 git config user.name "photino"
 git config user.email "panzan89@163.com"
