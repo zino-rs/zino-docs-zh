@@ -58,7 +58,7 @@ cargo run -- --env=dev
 直接访问<http://localhost:6080/public/upload.html>
 浏览器显示
 
-![网页显示内容](./images/image.png)
+![网页显示内容](../assets/image.png)
 
 至此我们的应用程序就算是搭建成功，后续就可以制作我们自己的应用程序了.
 

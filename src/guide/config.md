@@ -5,7 +5,10 @@
 # --env=prod 此处标志文件所属环境 env 或者prod
 
 name = "data-cube" # 应用名称可自行设定
-version = "0.6.1" # 当前应用版本号
+version = "0.6.3" # 当前应用版本号
+
+[dirs]
+uploads = "local/uploads"
 
 [main]
 host = "127.0.0.1" # 应用地址
@@ -18,6 +21,9 @@ port = 6081 # 应用2端口
 [[standby]]
 host = "127.0.0.1" # 应用3地址
 port = 6082 # 应用3地址
+
+[server] # 静态页面映射配置
+page-dir = "public"
 
 [database]
 type = "mysql" # 选择使用的数据库
@@ -37,6 +43,9 @@ database = "data_cube"
 username = "postgres"
 password = "xy6IsBbwqK0FzrxdRvrxi0F+NC1YqlnQRUj78aqxrV576D2b"
 
+[[sqlite]] # 数据库配置
+database = "local/data/main.db"
+
 [tracing] # 追踪级别
 filter = "warn"
 
@@ -44,6 +53,10 @@ filter = "warn"
 exporter = "prometheus"
 host = "127.0.0.1"
 port = 9000
+
+[jwt] # jwt配置
+max-age = "20m"
+refresh-interval = "7d"
 
 [[connector]] # 模拟数据
 type = "arrow"
