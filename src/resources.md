@@ -2,7 +2,7 @@
 
 ## 微信公众号
 
-![Zino开发框架](https://photino.github.io/zino-docs-zh/assets/zino-web-wechat.png)
+![Zino开发框架](https://zino.cc/assets/zino-web-wechat.png)
 
 ## 知乎专栏
 

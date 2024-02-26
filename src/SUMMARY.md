@@ -32,4 +32,5 @@
 - [框架集成](./integrations.md)
   - [axum](./integrations/axum.md)
   - [actix-web](./integrations/actix-web.md)
+  - [dioxus](./integrations/dioxus.md)
 - [更多资源](./resources.md)
