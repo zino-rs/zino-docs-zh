@@ -11,12 +11,13 @@ cargo run
 ```
 
 如果你能看到类似于下面的日志输出，那就表明`axum-app`成功运行了！
-![截图](https://zino.cc/assets/screenshots/guide-axum-app-log.png)
+![截图](https://zino.cc/assets/guide-axum-app-log.png)
 
 需要注意的是：
-- 当前Zino框架运行在`Rust 1.75+`版本；
-- 示例`axum-app`中需要连接MySQL数据库，具体配置参见`axum-app/config/。
+- 当前Zino框架运行在`Rust 1.75+`，请使用[`rustup`]安装合适的版本；
+- 示例`axum-app`中需要连接MySQL数据库，具体配置参见`axum-app/config/config.dev.toml`。
 
 [`actix-app`]: https://github.com/zino-rs/zino/tree/main/examples/actix-app
 [`axum-app`]: https://github.com/zino-rs/zino/tree/main/examples/axum-app
 [`dioxus-desktop`]: https://github.com/zino-rs/zino/tree/main/examples/dioxus-desktop
+[`rustup`]: https://rust-lang.github.io/rustup/
