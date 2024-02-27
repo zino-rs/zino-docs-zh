@@ -3,6 +3,7 @@ mdbook build
 
 ## init git repo
 cd book
+cp ../CNAME ./
 mkdir assets
 cp ../assets/** assets/
 git init
