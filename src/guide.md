@@ -15,9 +15,10 @@ cargo run
 
 需要注意的是：
 - 当前Zino框架运行在`Rust 1.75+`，请使用[`rustup`]安装合适的版本；
-- 示例`axum-app`中需要连接MySQL数据库，具体配置参见`axum-app/config/config.dev.toml`。
+- 示例`axum-app`中需要连接MySQL数据库，具体配置参见[`axum-app/config/config.dev.toml`][axum-app-config]。
 
 [`actix-app`]: https://github.com/zino-rs/zino/tree/main/examples/actix-app
 [`axum-app`]: https://github.com/zino-rs/zino/tree/main/examples/axum-app
 [`dioxus-desktop`]: https://github.com/zino-rs/zino/tree/main/examples/dioxus-desktop
 [`rustup`]: https://rust-lang.github.io/rustup/
+[axum-app-config]: https://github.com/zino-rs/zino/blob/main/examples/axum-app/config/config.dev.toml
