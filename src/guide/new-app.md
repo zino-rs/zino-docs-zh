@@ -12,35 +12,22 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-axum = "0.6.20"
-serde = { version = "1.0.197", features = ["derive"] }
-tracing = "0.1.40"
 zino = { version = "0.18.2", features = ["axum"] }
-zino-core = { version = "0.19.2", features = ["orm-mysql"] }
-zino-derive = "0.16.2"
-zino-model = "0.16.2"
 ```
-这里我们用的是`axum`框架和MySQL数据库。如果要使用`actix-web`框架和PostgreSQL数据库，那就添加以下依赖：
-```toml
-[dependencies]
-actix-web = "4.5.1"
-serde = { version = "1.0.197", features = ["derive"] }
-tracing = "0.1.40"
-zino = { version = "0.18.2", features = ["actix"] }
-zino-core = { version = "0.19.2", features = ["orm-postgres"] }
-zino-derive = "0.16.2"
-zino-model = "0.16.2"
-```
-进而我们在`src`目录创建`controller`、`model`、`router`三个模块（此时`mod.rs`中都还是空文件），
-在`main.rs`中添加以下代码：
+这里我们使用的是`axum`框架。如果要用`actix-web`框架，那就把`features`替换为`["actix"]`。
+进而，我们在`src`目录的`main.rs`中添加以下代码：
 ```rust
-mod controller;
-mod model;
-mod router;
-
 use zino::prelude::*;
 
 fn main() {
     zino::Cluster::boot().run()
 }
 ```
+此时，我们的应用已经可以运行了：
+```bash
+cargo run
+```
+打开浏览器地址`http://localhost:6080/rapidoc`，你将能够看到RapiDoc文档页面。
+
+这是一个极简的示例，没有太多实际功能。但是如果你在项目目录中添加一个`public`目录，那么这就可以作为静态文件服务器，
+并且Zino框架会把根路由`/`根据`public/index.html`来渲染。在前后端分离的项目中，这一特性可用于部署打包后的单页面应用。
