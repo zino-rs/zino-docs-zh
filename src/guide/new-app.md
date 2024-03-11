@@ -12,7 +12,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-zino = { version = "0.18.3", features = ["axum"] }
+zino = { version = "0.18.4", features = ["axum"] }
 ```
 这里我们使用的是`axum`框架。如果要用`actix-web`框架，那就把`features`替换为`["actix"]`。
 进而，我们在`src`目录的`main.rs`中添加以下代码：
