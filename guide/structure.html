@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>目录结构 - Zino开发框架中文教程</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../guide.html"><strong aria-hidden="true">2.</strong> 入门指南</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/new-app.html"><strong aria-hidden="true">2.1.</strong> 创建应用</a></li><li class="chapter-item expanded "><a href="../guide/structure.html" class="active"><strong aria-hidden="true">2.2.</strong> 目录结构</a></li><li class="chapter-item expanded "><a href="../guide/config.html"><strong aria-hidden="true">2.3.</strong> 配置文件</a></li><li class="chapter-item expanded "><a href="../guide/development.html"><strong aria-hidden="true">2.4.</strong> 开发测试(TODO)</a></li><li class="chapter-item expanded "><a href="../guide/deployment.html"><strong aria-hidden="true">2.5.</strong> 应用部署(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="../basics.html"><strong aria-hidden="true">3.</strong> 基础功能(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basics/application.html"><strong aria-hidden="true">3.1.</strong> 应用接口定义(TODO)</a></li><li class="chapter-item expanded "><a href="../basics/state.html"><strong aria-hidden="true">3.2.</strong> 状态管理(TODO)</a></li><li class="chapter-item expanded "><a href="../basics/request.html"><strong aria-hidden="true">3.3.</strong> 请求上下文(TODO)</a></li><li class="chapter-item expanded "><a href="../basics/response.html"><strong aria-hidden="true">3.4.</strong> 请求响应(TODO)</a></li><li class="chapter-item expanded "><a href="../basics/error.html"><strong aria-hidden="true">3.5.</strong> 错误处理(TODO)</a></li><li class="chapter-item expanded "><a href="../basics/model.html"><strong aria-hidden="true">3.6.</strong> 领域模型(TODO)</a></li><li class="chapter-item expanded "><a href="../basics/schedule.html"><strong aria-hidden="true">3.7.</strong> 调度任务(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="../advanced.html"><strong aria-hidden="true">4.</strong> 进阶功能(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../advanced/authentication.html"><strong aria-hidden="true">4.1.</strong> 身份认证(TODO)</a></li><li class="chapter-item expanded "><a href="../advanced/trace.html"><strong aria-hidden="true">4.2.</strong> 可观测性(TODO)</a></li><li class="chapter-item expanded "><a href="../advanced/channel.html"><strong aria-hidden="true">4.3.</strong> 消息订阅(TODO)</a></li><li class="chapter-item expanded "><a href="../advanced/datetime.html"><strong aria-hidden="true">4.4.</strong> 日期处理(TODO)</a></li><li class="chapter-item expanded "><a href="../advanced/i18n.html"><strong aria-hidden="true">4.5.</strong> 国际化(TODO)</a></li><li class="chapter-item expanded "><a href="../advanced/extension.html"><strong aria-hidden="true">4.6.</strong> 拓展方法(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="../features.html"><strong aria-hidden="true">5.</strong> 可选功能(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../features/orm.html"><strong aria-hidden="true">5.1.</strong> ORM(TODO)</a></li><li class="chapter-item expanded "><a href="../features/view.html"><strong aria-hidden="true">5.2.</strong> HTML模板(TODO)</a></li><li class="chapter-item expanded "><a href="../features/cache.html"><strong aria-hidden="true">5.3.</strong> 缓存(TODO)</a></li><li class="chapter-item expanded "><a href="../features/accessor.html"><strong aria-hidden="true">5.4.</strong> 存储服务(TODO)</a></li><li class="chapter-item expanded "><a href="../features/connector.html"><strong aria-hidden="true">5.5.</strong> 数据源访问(TODO)</a></li><li class="chapter-item expanded "><a href="../features/chatbot.html"><strong aria-hidden="true">5.6.</strong> 聊天机器人(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="../integrations.html"><strong aria-hidden="true">6.</strong> 框架集成(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../integrations/axum.html"><strong aria-hidden="true">6.1.</strong> axum(TODO)</a></li><li class="chapter-item expanded "><a href="../integrations/actix-web.html"><strong aria-hidden="true">6.2.</strong> actix-web(TODO)</a></li><li class="chapter-item expanded "><a href="../integrations/dioxus.html"><strong aria-hidden="true">6.3.</strong> dioxus(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="../resources.html"><strong aria-hidden="true">7.</strong> 更多资源</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zino开发框架中文教程</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/photino/zino-docs-zh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/photino/zino-docs-zh/edit/main/src/guide/structure.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="目录结构"><a class="header" href="#目录结构">目录结构</a></h1>
+<blockquote>
+<p>Zino开发框架的应用目录组织方式只是一种推荐，可根据实际需求进行调整。尤其是<code>src</code>目录，可以使用Rust模块自由组织，
+我们并没有严格限定各个模块之间的调用关系。</p>
+</blockquote>
+<p>我们采用了类似于<a href="https://www.eggjs.org/zh-CN/basics/structure">Egg.js</a>的应用目录约定规范：</p>
+<pre><code class="language-shell">zino-app
+├─ Cargo.toml
+├─ config
+│  ├─ config.dev.toml
+│  ├─ config.prod.toml
+│  ├─ locale
+│  │  ├─ en-US.ftl
+│  │  └─ zh-CN.ftl
+│  └─ openapi
+│     ├─ OPENAPI.toml
+│     ├─ auth.toml
+│     └─ user.toml
+├─ local
+│  ├─ data
+│  │  └─ mock
+│  │     ├─ logs.ndjson
+│  │     └─ users.csv
+│  └─ docs
+│     └─ rapidoc.html
+├─ logs
+├─ public
+│  ├─ 404.html
+│  ├─ data
+│  │  └─ logs.ndjson
+│  └─ index.html
+├─ src
+│  ├─ controller
+│  │  ├─ mod.rs
+│  │  ├─ stats.rs
+│  │  ├─ task.rs
+│  │  └─ user.rs
+│  ├─ extension
+│  │  ├─ casbin.rs
+│  │  ├─ header.rs
+│  │  └─ mod.rs
+│  ├─ logic
+│  │  ├─ mod.rs
+│  │  ├─ task.rs
+│  │  └─ user.rs
+│  ├─ main.rs
+│  ├─ middleware
+│  │  ├─ access.rs
+│  │  └─ mod.rs
+│  ├─ router
+│  │  └─ mod.rs
+│  ├─ schedule
+│  │  ├─ job.rs
+│  │  └─ mod.rs
+│  └─ service
+│     ├─ mod.rs
+│     ├─ task.rs
+│     └─ user.rs
+└─ templates
+   ├─ layout.html
+   └─ output.html
+</code></pre>
+<ul>
+<li><code>Cargo.toml</code>为应用的Cargo配置文件。</li>
+<li><code>config/config.{env}.toml</code>用于编写不同运行环境的配置文件。</li>
+<li><code>config/locale/{lang-id}.ftl</code>于编写i18n多语言文件（目前仅支持<a href="https://projectfluent.org/"><code>Fluent</code></a>规范）。</li>
+<li><code>config/openapi/</code>用于编写OpenAPI规范文档。</li>
+<li><code>local/</code>为本地静态资源目录（不能通过网络访问），<code>data/</code>为本地数据目录，<code>docs/</code>为文档目录。</li>
+<li><code>logs/</code>用于日志文件输出。</li>
+<li><code>public/</code>为通过网络访问的静态资源目录，<code>index.html</code>为默认首页文件，<code>404.html</code>为404文件，<code>data/</code>为共享的数据目录。</li>
+<li><code>src/controller/</code>用于编写控制器。</li>
+<li><code>src/extension/</code>用于编写辅助函数。</li>
+<li><code>src/logic/</code>用于编写业务逻辑。</li>
+<li><code>src/main.rs</code>用于启动应用以及自定义初始化。</li>
+<li><code>src/middleware/</code>用于编写中间件。</li>
+<li><code>src/router/</code>用于配置URL路由规则。</li>
+<li><code>src/schedule/</code>用于编写定时任务。</li>
+<li><code>src/service/</code>用于编写业务接口服务，供<code>controller</code>调用。</li>
+<li><code>templates/</code>用于编写HTML模板文件（目前支持<a href="https://docs.rs/tera"><code>Tera</code></a>和<a href="https://docs.rs/minijinja"><code>MiniJinja</code></a>模板）。</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../guide/new-app.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../guide/config.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../guide/new-app.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../guide/config.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

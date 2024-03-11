@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Zino开发框架中文教程</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/style.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="guide.html"><strong aria-hidden="true">2.</strong> 入门指南</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="guide/new-app.html"><strong aria-hidden="true">2.1.</strong> 创建应用</a></li><li class="chapter-item expanded "><a href="guide/structure.html"><strong aria-hidden="true">2.2.</strong> 目录结构</a></li><li class="chapter-item expanded "><a href="guide/config.html"><strong aria-hidden="true">2.3.</strong> 配置文件</a></li><li class="chapter-item expanded "><a href="guide/development.html"><strong aria-hidden="true">2.4.</strong> 开发测试(TODO)</a></li><li class="chapter-item expanded "><a href="guide/deployment.html"><strong aria-hidden="true">2.5.</strong> 应用部署(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="basics.html"><strong aria-hidden="true">3.</strong> 基础功能(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="basics/application.html"><strong aria-hidden="true">3.1.</strong> 应用接口定义(TODO)</a></li><li class="chapter-item expanded "><a href="basics/state.html"><strong aria-hidden="true">3.2.</strong> 状态管理(TODO)</a></li><li class="chapter-item expanded "><a href="basics/request.html"><strong aria-hidden="true">3.3.</strong> 请求上下文(TODO)</a></li><li class="chapter-item expanded "><a href="basics/response.html"><strong aria-hidden="true">3.4.</strong> 请求响应(TODO)</a></li><li class="chapter-item expanded "><a href="basics/error.html"><strong aria-hidden="true">3.5.</strong> 错误处理(TODO)</a></li><li class="chapter-item expanded "><a href="basics/model.html"><strong aria-hidden="true">3.6.</strong> 领域模型(TODO)</a></li><li class="chapter-item expanded "><a href="basics/schedule.html"><strong aria-hidden="true">3.7.</strong> 调度任务(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="advanced.html"><strong aria-hidden="true">4.</strong> 进阶功能(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="advanced/authentication.html"><strong aria-hidden="true">4.1.</strong> 身份认证(TODO)</a></li><li class="chapter-item expanded "><a href="advanced/trace.html"><strong aria-hidden="true">4.2.</strong> 可观测性(TODO)</a></li><li class="chapter-item expanded "><a href="advanced/channel.html"><strong aria-hidden="true">4.3.</strong> 消息订阅(TODO)</a></li><li class="chapter-item expanded "><a href="advanced/datetime.html"><strong aria-hidden="true">4.4.</strong> 日期处理(TODO)</a></li><li class="chapter-item expanded "><a href="advanced/i18n.html"><strong aria-hidden="true">4.5.</strong> 国际化(TODO)</a></li><li class="chapter-item expanded "><a href="advanced/extension.html"><strong aria-hidden="true">4.6.</strong> 拓展方法(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="features.html"><strong aria-hidden="true">5.</strong> 可选功能(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="features/orm.html"><strong aria-hidden="true">5.1.</strong> ORM(TODO)</a></li><li class="chapter-item expanded "><a href="features/view.html"><strong aria-hidden="true">5.2.</strong> HTML模板(TODO)</a></li><li class="chapter-item expanded "><a href="features/cache.html"><strong aria-hidden="true">5.3.</strong> 缓存(TODO)</a></li><li class="chapter-item expanded "><a href="features/accessor.html"><strong aria-hidden="true">5.4.</strong> 存储服务(TODO)</a></li><li class="chapter-item expanded "><a href="features/connector.html"><strong aria-hidden="true">5.5.</strong> 数据源访问(TODO)</a></li><li class="chapter-item expanded "><a href="features/chatbot.html"><strong aria-hidden="true">5.6.</strong> 聊天机器人(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="integrations.html"><strong aria-hidden="true">6.</strong> 框架集成(TODO)</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="integrations/axum.html"><strong aria-hidden="true">6.1.</strong> axum(TODO)</a></li><li class="chapter-item expanded "><a href="integrations/actix-web.html"><strong aria-hidden="true">6.2.</strong> actix-web(TODO)</a></li><li class="chapter-item expanded "><a href="integrations/dioxus.html"><strong aria-hidden="true">6.3.</strong> dioxus(TODO)</a></li></ol></li><li class="chapter-item expanded "><a href="resources.html"><strong aria-hidden="true">7.</strong> 更多资源</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zino开发框架中文教程</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/photino/zino-docs-zh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="引言"><a class="header" href="#引言">引言</a></h1>
+<p><a href="https://github.com/photino/zino"><code>Zino</code></a>致力于打造基于<a href="https://www.rust-lang.org/">Rust</a>语言的新一代组装式应用开发框架，
+提供一站式跨平台多端解决方案，可用于后端API开发、桌面应用开发等。
+我们奉行『约定优于配置』的原则，提供开箱即用的功能模块，极大提升开发效率；
+并通过应用接口抽象与<a href="https://crates.io/crates/actix-web"><code>actix-web</code></a>、<a href="https://crates.io/crates/axum"><code>axum</code></a>、<a href="https://crates.io/crates/dioxus"><code>dioxus</code></a>等框架集成，
+打通社区生态资源。</p>
+<p><img src="https://api.star-history.com/svg?repos=photino/zino&amp;type=Timeline" alt="Star History Chart" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="入门指南"><a class="header" href="#入门指南">入门指南</a></h1>
+<h2 id="快速开始"><a class="header" href="#快速开始">快速开始</a></h2>
+<p>你可以从代码仓库中的示例<a href="https://github.com/zino-rs/zino/tree/main/examples/actix-app"><code>actix-app</code></a>、<a href="https://github.com/zino-rs/zino/tree/main/examples/axum-app"><code>axum-app</code></a>或者<a href="https://github.com/zino-rs/zino/tree/main/examples/dioxus-desktop"><code>dioxus-desktop</code></a>开始体验Zino框架。</p>
+<pre><code class="language-bash">git clone https://github.com/zino-rs/zino.git
+cd zino/examples/axum-app
+cargo run
+</code></pre>
+<p>如果你能在终端中看到日志输出，那就表明<code>axum-app</code>成功运行了！需要注意的是：</p>
+<ul>
+<li>当前Zino框架运行在<code>Rust 1.75+</code>，请使用<a href="https://rust-lang.github.io/rustup/"><code>rustup</code></a>安装合适的版本；</li>
+<li>示例<code>axum-app</code>中需要连接MySQL数据库，具体配置参见<a href="https://github.com/zino-rs/zino/blob/main/examples/axum-app/config/config.dev.toml"><code>axum-app/config/config.dev.toml</code></a>。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="创建应用"><a class="header" href="#创建应用">创建应用</a></h1>
+<p>我们使用Rust的构建工具<code>Cargo</code>来管理应用。首先新建一个项目</p>
+<pre><code class="language-bash">cargo new zino-app --bin
+</code></pre>
+<p>然后在<code>Cargo.toml</code>中添加以下依赖</p>
+<pre><code class="language-toml">[package]
+name = "zino-app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+zino = { version = "0.18.4", features = ["axum"] }
+</code></pre>
+<p>这里我们使用的是<code>axum</code>框架。如果要用<code>actix-web</code>框架，那就把<code>features</code>替换为<code>["actix"]</code>。
+进而，我们在<code>src</code>目录的<code>main.rs</code>中添加以下代码：</p>
+<pre><pre class="playground"><code class="language-rust edition2021">use zino::prelude::*;
+
+fn main() {
+    zino::Cluster::boot().run()
+}</code></pre></pre>
+<p>此时，我们的应用已经可以运行了：</p>
+<pre><code class="language-bash">cargo run
+</code></pre>
+<p>打开浏览器地址<code>http://localhost:6080/rapidoc</code>，你将能够看到RapiDoc文档页面。</p>
+<p>这是一个极简的示例，没有太多实际功能。但是如果你在项目目录中添加一个<code>public</code>目录，那么这就可以作为静态文件服务器，
+并且Zino框架会自动使用<code>public/index.html</code>来渲染根路由<code>/</code>。在前后端分离的项目中，这一特性可用于部署打包后的单页面应用。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="目录结构"><a class="header" href="#目录结构">目录结构</a></h1>
+<blockquote>
+<p>Zino开发框架的应用目录组织方式只是一种推荐，可根据实际需求进行调整。尤其是<code>src</code>目录，可以使用Rust模块自由组织，
+我们并没有严格限定各个模块之间的调用关系。</p>
+</blockquote>
+<p>我们采用了类似于<a href="https://www.eggjs.org/zh-CN/basics/structure">Egg.js</a>的应用目录约定规范：</p>
+<pre><code class="language-shell">zino-app
+├─ Cargo.toml
+├─ config
+│  ├─ config.dev.toml
+│  ├─ config.prod.toml
+│  ├─ locale
+│  │  ├─ en-US.ftl
+│  │  └─ zh-CN.ftl
+│  └─ openapi
+│     ├─ OPENAPI.toml
+│     ├─ auth.toml
+│     └─ user.toml
+├─ local
+│  ├─ data
+│  │  └─ mock
+│  │     ├─ logs.ndjson
+│  │     └─ users.csv
+│  └─ docs
+│     └─ rapidoc.html
+├─ logs
+├─ public
+│  ├─ 404.html
+│  ├─ data
+│  │  └─ logs.ndjson
+│  └─ index.html
+├─ src
+│  ├─ controller
+│  │  ├─ mod.rs
+│  │  ├─ stats.rs
+│  │  ├─ task.rs
+│  │  └─ user.rs
+│  ├─ extension
+│  │  ├─ casbin.rs
+│  │  ├─ header.rs
+│  │  └─ mod.rs
+│  ├─ logic
+│  │  ├─ mod.rs
+│  │  ├─ task.rs
+│  │  └─ user.rs
+│  ├─ main.rs
+│  ├─ middleware
+│  │  ├─ access.rs
+│  │  └─ mod.rs
+│  ├─ router
+│  │  └─ mod.rs
+│  ├─ schedule
+│  │  ├─ job.rs
+│  │  └─ mod.rs
+│  └─ service
+│     ├─ mod.rs
+│     ├─ task.rs
+│     └─ user.rs
+└─ templates
+   ├─ layout.html
+   └─ output.html
+</code></pre>
+<ul>
+<li><code>Cargo.toml</code>为应用的Cargo配置文件。</li>
+<li><code>config/config.{env}.toml</code>用于编写不同运行环境的配置文件。</li>
+<li><code>config/locale/{lang-id}.ftl</code>于编写i18n多语言文件（目前仅支持<a href="https://projectfluent.org/"><code>Fluent</code></a>规范）。</li>
+<li><code>config/openapi/</code>用于编写OpenAPI规范文档。</li>
+<li><code>local/</code>为本地静态资源目录（不能通过网络访问），<code>data/</code>为本地数据目录，<code>docs/</code>为文档目录。</li>
+<li><code>logs/</code>用于日志文件输出。</li>
+<li><code>public/</code>为通过网络访问的静态资源目录，<code>index.html</code>为默认首页文件，<code>404.html</code>为404文件，<code>data/</code>为共享的数据目录。</li>
+<li><code>src/controller/</code>用于编写控制器。</li>
+<li><code>src/extension/</code>用于编写辅助函数。</li>
+<li><code>src/logic/</code>用于编写业务逻辑。</li>
+<li><code>src/main.rs</code>用于启动应用以及自定义初始化。</li>
+<li><code>src/middleware/</code>用于编写中间件。</li>
+<li><code>src/router/</code>用于配置URL路由规则。</li>
+<li><code>src/schedule/</code>用于编写定时任务。</li>
+<li><code>src/service/</code>用于编写业务接口服务，供<code>controller</code>调用。</li>
+<li><code>templates/</code>用于编写HTML模板文件（目前支持<a href="https://docs.rs/tera"><code>Tera</code></a>和<a href="https://docs.rs/minijinja"><code>MiniJinja</code></a>模板）。</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="配置文件"><a class="header" href="#配置文件">配置文件</a></h1>
+<p>Zino框架支持根据运行环境来加载配置，不同环境的配置项定义在<code>config/config.{env}.toml</code>文件中。
+具体运行环境的选择，按照以下优先顺序来判断：</p>
+<ol>
+<li>应用启动时传入的<code>--env</code>参数，如<code>cargo run -- --env=dev</code>；</li>
+<li>如果命令参数不存在，将尝试读取环境变量<code>ZINO_APP_ENV</code>（Zino框架也会自动加载项目目录中的<code>.env</code>文件）；</li>
+<li>假如环境变量也不存在，将根据<code>cfg!(debug_assertions)</code>给出默认值：取值为<code>true</code>，则运行环境为<code>dev</code>，
+否则为<code>prod</code>。</li>
+</ol>
+<p>开发环境<code>dev</code>和生产环境<code>prod</code>是预定义的两个取值。如有需要，你也可以自行添加其它运行环境，比如<code>test</code>环境，
+对应的配置文件为<code>config/config.test.toml</code>。</p>
+<p>当然，除了Rust社区中最常用的TOML格式，我们也支持JSON和YAML格式的配置文件，
+可通过环境变量<code>ZINO_APP_CONFIG_FORMAT</code>进行选择。默认情况下，配置文件是从本地加载的；
+如果你需要从远程URL加载，那就请设置环境变量<code>ZINO_APP_CONFIG_URL</code>，
+此时配置文件格式是通过请求响应的<code>content_type</code>来判断的。</p>
+<p>鉴于Zino框架的配置项比较多，在项目开发的初始阶段我们推荐你采用默认值，这样可以省略绝大多数的配置项。
+如果确有需要，在项目开发的过程中再逐渐添加。</p>
+<p>一个最简单的配置文件示例如下：</p>
+<pre><code class="language-toml">name = "DataCube"
+version = "1.0"
+</code></pre>
+<p>需要注意的是，这里的<code>name</code>和<code>version</code>是指应用的名称和版本，与<code>Cargo.toml</code>里<code>[package]</code>的<code>name</code>和<code>version</code>不是一个概念。</p>
+<p>在这里，我们只列出全局配置项，具体功能的配置项将在后面的功能模块里给出。</p>
+<ul>
+<li><code>name</code>：应用名称
+<pre><code class="language-toml">name = "DataCube"
+</code></pre>
+</li>
+<li><code>version</code>: 应用版本
+<pre><code class="language-toml">version = "1.0"
+</code></pre>
+</li>
+<li><code>secret</code>: 应用密文，用于推导<code>Application</code>的<a href="https://docs.rs/zino-core/latest/zino_core/application/trait.Application.html#method.secret_key"><code>secret_key</code></a>。
+当缺失时，会根据应用名称和版本自动生成。
+<pre><code class="language-toml">secret = "SecretPhrase"
+</code></pre>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="开发测试todo"><a class="header" href="#开发测试todo">开发测试(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="应用部署todo"><a class="header" href="#应用部署todo">应用部署(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="基础功能todo"><a class="header" href="#基础功能todo">基础功能(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="应用接口定义todo"><a class="header" href="#应用接口定义todo">应用接口定义(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="状态管理todo"><a class="header" href="#状态管理todo">状态管理(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="请求处理todo"><a class="header" href="#请求处理todo">请求处理(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="请求响应todo"><a class="header" href="#请求响应todo">请求响应(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="错误处理todo"><a class="header" href="#错误处理todo">错误处理(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="应用模型todo"><a class="header" href="#应用模型todo">应用模型(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="调度任务todo"><a class="header" href="#调度任务todo">调度任务(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="进阶功能todo"><a class="header" href="#进阶功能todo">进阶功能(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="身份认证todo"><a class="header" href="#身份认证todo">身份认证(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="可观测性todo"><a class="header" href="#可观测性todo">可观测性(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="消息订阅todo"><a class="header" href="#消息订阅todo">消息订阅(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="日期处理todo"><a class="header" href="#日期处理todo">日期处理(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="国际化todo"><a class="header" href="#国际化todo">国际化(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="辅助函数todo"><a class="header" href="#辅助函数todo">辅助函数(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="可选功能todo"><a class="header" href="#可选功能todo">可选功能(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ormtodo"><a class="header" href="#ormtodo">ORM(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="html模板todo"><a class="header" href="#html模板todo">HTML模板(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="缓存todo"><a class="header" href="#缓存todo">缓存(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="存储服务todo"><a class="header" href="#存储服务todo">存储服务(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="数据源访问todo"><a class="header" href="#数据源访问todo">数据源访问(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="聊天机器人todo"><a class="header" href="#聊天机器人todo">聊天机器人(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="框架集成todo"><a class="header" href="#框架集成todo">框架集成(TODO)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="axum"><a class="header" href="#axum">axum</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actix-web"><a class="header" href="#actix-web">actix-web</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="dioxus"><a class="header" href="#dioxus">dioxus</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="更多资源"><a class="header" href="#更多资源">更多资源</a></h1>
+<h2 id="微信公众号"><a class="header" href="#微信公众号">微信公众号</a></h2>
+<p><img src="https://zino.cc/assets/zino-web-wechat.png" alt="Zino开发框架" /></p>
+<h2 id="知乎专栏"><a class="header" href="#知乎专栏">知乎专栏</a></h2>
+<p><a href="https://www.zhihu.com/column/c_1629805160351281152">Zino开发框架技术解读</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
