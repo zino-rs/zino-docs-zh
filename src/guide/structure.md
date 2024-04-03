@@ -1,7 +1,7 @@
 # 目录结构
 
 > Zino开发框架的应用目录组织方式只是一种推荐，可根据实际需求进行调整。尤其是`src`目录，可以使用Rust模块自由组织，
-  我们并没有严格限定各个模块之间的调用关系。
+  我们并没有严格限定各个模块之间的调用关系，只要能通过编译皆可。
 
 我们采用了类似于[Egg.js][eggjs-structure]的应用目录约定规范：
 
@@ -66,7 +66,7 @@ zino-app
 * `Cargo.toml`为应用的Cargo配置文件。
 * `config/config.{env}.toml`用于编写不同运行环境的配置文件。
 * `config/locale/{lang-id}.ftl`于编写i18n多语言文件（目前仅支持[`Fluent`]规范）。
-* `config/openapi/`用于编写OpenAPI规范文档。
+* `config/openapi/{tag}.toml`用于编写OpenAPI规范文档。
 * `local/`为本地静态资源目录（不能通过网络访问），`data/`为本地数据目录，`docs/`为文档目录。
 * `logs/`用于日志文件输出。
 * `public/`为通过网络访问的静态资源目录，`index.html`为默认首页文件，`404.html`为404文件，`data/`为共享的数据目录。

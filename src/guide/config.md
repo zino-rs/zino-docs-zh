@@ -11,7 +11,7 @@ Zino框架支持根据运行环境来加载配置，不同环境的配置项定�
 开发环境`dev`和生产环境`prod`是预定义的两个取值。如有需要，你也可以自行添加其它运行环境，比如`test`环境，
 对应的配置文件为`config/config.test.toml`。
 
-当然，除了Rust社区中最常用的TOML格式，我们也支持JSON和YAML格式的配置文件，
+当然，除了Rust社区中最常用的TOML格式，我们也支持JSON格式的配置文件，
 可通过环境变量`ZINO_APP_CONFIG_FORMAT`进行选择。默认情况下，配置文件是从本地加载的；
 如果你需要从远程URL加载，那就请设置环境变量`ZINO_APP_CONFIG_URL`，
 此时配置文件格式是通过请求响应的`content_type`来判断的。
