@@ -65,9 +65,9 @@ zino-app
 
 * `Cargo.toml`为应用的Cargo配置文件。
 * `config/config.{env}.toml`用于编写不同运行环境的配置文件。
-* `config/locale/{lang-id}.ftl`于编写i18n多语言文件（目前仅支持[`Fluent`]规范）。
+* `config/locale/{lang-id}.ftl`于编写i18n多语言文件，目前仅支持[`Fluent`]规范。
 * `config/openapi/{tag}.toml`用于编写OpenAPI规范文档。
-* `local/`为本地静态资源目录（不能通过网络访问），`data/`为本地数据目录，`docs/`为文档目录。
+* `local/`为本地静态资源目录，`data/`为本地数据目录，`docs/`为文档目录。
 * `logs/`用于日志文件输出。
 * `public/`为通过网络访问的静态资源目录，`index.html`为默认首页文件，`404.html`为404文件，`data/`为共享的数据目录。
 * `src/controller/`用于编写控制器。
@@ -78,7 +78,7 @@ zino-app
 * `src/router/`用于配置URL路由规则。
 * `src/schedule/`用于编写定时任务。
 * `src/service/`用于编写业务接口服务，供`controller`调用。
-* `templates/`用于编写HTML模板文件（目前支持[`Tera`]和[`MiniJinja`]模板）。
+* `templates/`用于编写HTML模板文件，目前支持[`Tera`]和[`MiniJinja`]模板。
 
 [eggjs-structure]: https://www.eggjs.org/zh-CN/basics/structure
 [`Fluent`]: https://projectfluent.org/

@@ -3,8 +3,8 @@
 Zino框架的主要功能都由[`zino-core`]提供，这是与具体Web框架（如[`actix-web`]或[`axum`]）无关的抽象，
 其中最基础的就是以下七大模块：
 
-- [`application`]：应用接口抽象，这是与其它框架差异最大的地方；
-- [`state`]：应用状态管理，大量使用Lazy初始化的全局变量；
+- [`application`]：应用接口抽象，这是与其他框架差异最大的地方；
+- [`state`]：应用状态管理，大量使用惰性初始化的全局变量；
 - [`error`]：通用的错误处理，搭配[`bail!`]、[`warn!`]、[`reject!`]使用；
 - [`request`]：请求上下文，通过[`RequestContext`] trait提供方法；
 - [`response`]：构建请求响应，统一处理不同的`content-type`；

@@ -4,15 +4,15 @@ Zino框架支持根据运行环境来加载配置，不同环境的配置项定�
 具体运行环境的选择，按照以下优先顺序来判断：
 
 1. 应用启动时传入的`--env`参数，如`cargo run -- --env=dev`；
-2. 如果命令参数不存在，将尝试读取环境变量`ZINO_APP_ENV`（Zino框架也会自动加载项目目录中的`.env`文件）；
+2. 如果命令参数不存在，将尝试读取环境变量`ZINO_APP_ENV`[^dotenv]；
 3. 假如环境变量也不存在，将根据`cfg!(debug_assertions)`给出默认值：取值为`true`，则运行环境为`dev`，
 否则为`prod`。
 
-开发环境`dev`和生产环境`prod`是预定义的两个取值。如有需要，你也可以自行添加其它运行环境，比如`test`环境，
+开发环境`dev`和生产环境`prod`是预定义的两个取值。如有需要，你也可以自行添加其他运行环境，比如`test`环境，
 对应的配置文件为`config/config.test.toml`。
 
 当然，除了Rust社区中最常用的TOML格式，我们也支持JSON格式的配置文件，
-可通过环境变量`ZINO_APP_CONFIG_FORMAT`进行选择。默认情况下，配置文件是从本地加载的；
+可以通过环境变量`ZINO_APP_CONFIG_FORMAT`进行选择。默认情况下，配置文件是从本地加载的；
 如果你需要从远程URL加载，那就请设置环境变量`ZINO_APP_CONFIG_URL`，
 此时配置文件格式是通过请求响应的`content_type`来判断的。
 
@@ -41,5 +41,7 @@ version = "1.0"
   ```toml
   secret = "SecretPhrase"
   ```
+
+[^dotenv]: 当开启了`feature = "dotenv"`时，Zino框架也会自动加载项目目录中的`.env`文件。
 
 [docsrs-secret-key]: https://docs.rs/zino-core/latest/zino_core/application/trait.Application.html#method.secret_key
