@@ -10,5 +10,13 @@ edition = "2021"
 
 [output.html]
 additional-css = ["theme/style.css"]
-git-repository-url = "https://github.com/photino/zino-docs-zh"
-edit-url-template = "https://github.com/photino/zino-docs-zh/edit/main/{path}"
+additional-js = ["assets/custom.js"]
+git-repository-url = "https://github.com/zino-rs/zino-docs-zh"
+edit-url-template = "https://github.com/zino-rs/zino-docs-zh/edit/main/{path}"
+
+[output.html.playground]
+editable = false
+copyable = true
+copy-js = true
+line-numbers = true
+runnable = false

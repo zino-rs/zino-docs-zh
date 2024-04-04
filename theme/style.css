@@ -36,3 +36,7 @@ code.editable,
 .ace_scroller {
   top: 10px;
 }
+
+.content p {
+  text-align: justify;
+}
