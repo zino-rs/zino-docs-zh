@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
   script.setAttribute('data-repo-id', 'R_kgDOJZESbg');
   script.setAttribute('data-category', 'Announcements');
   script.setAttribute('data-category-id', 'DIC_kwDOJZESbs4CecQK');
-  script.setAttribute('data-mapping', 'pathname');
+  script.setAttribute('data-mapping', 'title');
   script.setAttribute('data-script', '0');
   script.setAttribute('data-reactions-enabled', '1');
   script.setAttribute('data-emit-metadata', '0');

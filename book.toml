@@ -9,10 +9,12 @@ src = "src"
 edition = "2021"
 
 [output.html]
+default-theme = "light"
 additional-css = ["theme/style.css"]
 additional-js = ["assets/custom.js"]
 git-repository-url = "https://github.com/zino-rs/zino-docs-zh"
 edit-url-template = "https://github.com/zino-rs/zino-docs-zh/edit/main/{path}"
+cname = "zino.cc"
 
 [output.html.playground]
 editable = false
