@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>状态管理 - Zino开发框架中文教程</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../theme/style.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> 引言</a></li><li class="chapter-item expanded "><a href="../guide.html"><strong aria-hidden="true">2.</strong> 入门指南</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../guide/new-app.html"><strong aria-hidden="true">2.1.</strong> 创建应用</a></li><li class="chapter-item expanded "><a href="../guide/structure.html"><strong aria-hidden="true">2.2.</strong> 目录结构</a></li><li class="chapter-item expanded "><a href="../guide/config.html"><strong aria-hidden="true">2.3.</strong> 配置文件</a></li></ol></li><li class="chapter-item expanded "><a href="../basics.html"><strong aria-hidden="true">3.</strong> 基础模块</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../basics/application.html"><strong aria-hidden="true">3.1.</strong> 应用接口抽象</a></li><li class="chapter-item expanded "><a href="../basics/state.html" class="active"><strong aria-hidden="true">3.2.</strong> 状态管理</a></li><li class="chapter-item expanded "><a href="../basics/error.html"><strong aria-hidden="true">3.3.</strong> 错误处理</a></li><li class="chapter-item expanded "><a href="../basics/request.html"><strong aria-hidden="true">3.4.</strong> 请求上下文</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.5.</strong> 请求响应(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.6.</strong> 任务调度(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.7.</strong> 领域模型(TODO)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> 数据库ORM(TODO)</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> 数据表映射(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Trait推导(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> API自动生成(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> OpenAPI文档(TODO)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.</strong> 进阶专题(TODO)</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">5.1.</strong> 身份认证(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.2.</strong> 可观测性(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">5.3.</strong> 拓展机制(TODO)</div></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.</strong> 框架集成(TODO)</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">6.1.</strong> actix-web(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> axum(TODO)</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> dioxus(TODO)</div></li></ol></li><li class="chapter-item expanded "><a href="../resources.html"><strong aria-hidden="true">7.</strong> 更多资源</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zino开发框架中文教程</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/zino-rs/zino-docs-zh" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/zino-rs/zino-docs-zh/edit/main/src/basics/state.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="状态管理"><a class="header" href="#状态管理">状态管理</a></h1>
+<p>在Zino框架中，应用状态是由<a href="https://docs.rs/zino-core/latest/zino_core/state/struct.State.html"><code>State</code></a>类型提供的：</p>
+<pre><code class="language-rust">#[derive(Debug, Clone)]
+pub struct State&lt;T = ()&gt; {
+    env: Env,
+    config: Table,
+    data: T,
+}</code></pre>
+<p>它包含有运行环境<a href="https://docs.rs/zino-core/latest/zino_core/state/enum.Env.html"><code>Env</code></a>、TOML格式的配置文件<a href="https://docs.rs/toml/latest/toml/type.Table.html"><code>Table</code></a>以及自定义数据类型<code>T</code>。</p>
+<p>不同于很多Web框架，我们的应用状态管理是基于惰性初始化的全局变量来实现的，主要考量如下：</p>
+<ol>
+<li>应用状态通常存在于整个运行期间，也就是说它的生命周期为<code>'static</code>；</li>
+<li>应用状态通常只需要初始化加载一次，并且在运行期间并不会被修改；</li>
+<li>尽可能避免在<code>controller</code>或<code>service</code>方法中传递应用状态参数。</li>
+</ol>
+<p>回到具体实现上，最核心的几行代码就是</p>
+<pre><code class="language-rust">static SHARED_STATE: LazyLock&lt;State&gt; = LazyLock::new(|| {
+    let mut state = State::default();
+    state.load_config();
+    state
+});</code></pre>
+<p>这定义了一个全局共享的静态变量，通过<a href="https://docs.rs/zino-core/latest/zino_core/state/struct.State.html#method.shared"><code>State::shared</code></a>方法可以得到它的一个<code>&amp;'static</code>引用，
+然后就可以在整个应用中到处使用。</p>
+<h2 id="示例如何使用redis"><a class="header" href="#示例如何使用redis">示例：如何使用Redis？</a></h2>
+<pre><code class="language-toml"># config/config.dev.toml
+
+[redis]
+host = "127.0.0.1"
+port = 6379
+database = "dbnum"
+username = "some_user"
+password = "hsfU4Y3aRbxVNuLpVG5T+wb9jIDdQyaUIiPgeQrP0ZRM1g"
+</code></pre>
+<pre><code class="language-rust">//! src/extension/redis.rs
+
+use parking_lot::Mutex;
+use redis::{Client, Connection, RedisResult};
+use zino_core::{state::State, LazyLock};
+
+#[derive(Debug, Clone, Copy)]
+pub struct Redis;
+
+impl Redis {
+    #[inline]
+    pub fn get_value(key: &amp;str) -&gt; RedisResult&lt;String&gt; {
+        REDIS_CONNECTION.lock().get(key)
+    }
+
+    #[inline]
+    pub fn set_value(key: &amp;str, value: &amp;str, seconds: u64) -&gt; RedisResult&lt;()&gt; {
+        REDIS_CONNECTION.lock().set_ex(key, value, seconds)
+    }
+}
+
+static REDIS_CLIENT: LazyLock&lt;Client&gt; = LazyLock::new(|| {
+    let config = State::shared()
+        .get_config("redis")
+        .expect("the `redis` field should be a table");
+    let database = config
+        .get_str("database")
+        .expect("the `database` field should be a str");
+    let authority = State::format_authority(config, Some(6379));
+    let url = format!("redis://{authority}/{database}");
+    Client::open(url)
+        .expect("fail to create a connector to the redis server")
+});
+
+static REDIS_CONNECTION: LazyLock&lt;Mutex&lt;Connection&gt;&gt; = LazyLock::new(|| {
+    let connection = REDIS_CLIENT.get_connection()
+        .expect("fail to establish a connection to the redis server");
+    Mutex::new(connection)
+});</code></pre>
+<p>这是Zino框架中推荐的使用模式：在配置文件里编写Redis连接信息<sup class="footnote-reference"><a href="#password">1</a></sup>，通过Lazy的全局变量初始化Client；
+然后定义一个空结构体，进而封装一些自定义方法。仔细想想，这不就类似于其他语言中的“单例模式”吗？</p>
+<div class="footnote-definition" id="password"><sup class="footnote-definition-label">1</sup>
+<p>配置项中的密码也可以先写为明文，运行后会在终端里提醒你修改为加密后的。</p>
+</div>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../basics/application.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../basics/error.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../basics/application.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../basics/error.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../assets/custom.js"></script>
+
+
+    </div>
+    </body>
+</html>

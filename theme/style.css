@@ -1,0 +1,42 @@
+@media only screen and (max-width:1080px) {
+  .sidetoc {
+    display: none !important;
+  }
+}
+
+table {
+  margin-left: 0 !important;
+}
+
+@media only screen and (max-width: 2560px) {
+  .nav-wide-wrapper {
+    display: none;
+  }
+
+  .nav-wrapper {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 2560px) {
+  .sidebar-visible .nav-wide-wrapper {
+    display: none;
+  }
+
+  .sidebar-visible .nav-wrapper {
+    display: block;
+  }
+}
+
+code {
+  word-break: break-word;
+}
+
+code.editable,
+.ace_scroller {
+  top: 10px;
+}
+
+.content p {
+  text-align: justify;
+}
