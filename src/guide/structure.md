@@ -14,6 +14,8 @@ zino-app
 │  ├─ locale
 │  │  ├─ en-US.ftl
 │  │  └─ zh-CN.ftl
+│  ├─ opa
+│  │  └─ user.opa
 │  └─ openapi
 │     ├─ OPENAPI.toml
 │     ├─ auth.toml
@@ -66,6 +68,7 @@ zino-app
 * `Cargo.toml`为应用的Cargo配置文件。
 * `config/config.{env}.toml`用于编写不同运行环境的配置文件。
 * `config/locale/{lang-id}.ftl`于编写i18n多语言文件，目前仅支持[`Fluent`]规范。
+* `config/opa/{policy}.rego`用于编写OpenPolicyAgent策略。
 * `config/openapi/{tag}.toml`用于编写OpenAPI规范文档。
 * `local/`为本地静态资源目录，`data/`为本地数据目录，`docs/`为文档目录。
 * `logs/`用于日志文件输出。

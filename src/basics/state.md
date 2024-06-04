@@ -44,16 +44,22 @@ password = "hsfU4Y3aRbxVNuLpVG5T+wb9jIDdQyaUIiPgeQrP0ZRM1g"
 ```rust
 //! src/extension/redis.rs
 
-use redis::{Client, Connection};
-use zino_core::{error::Error, state::State, LazyLock};
+use parking_lot::Mutex;
+use redis::{Client, Connection, RedisResult};
+use zino_core::{state::State, LazyLock};
 
 #[derive(Debug, Clone, Copy)]
 pub struct Redis;
 
 impl Redis {
     #[inline]
-    pub async fn connect() -> Result<Connection, Error> {
-        REDIS_CLIENT.get_async_connection().await.map_err(Error::from)
+    pub fn get_value(key: &str) -> RedisResult<String> {
+        REDIS_CONNECTION.lock().get(key)
+    }
+
+    #[inline]
+    pub fn set_value(key: &str, value: &str, seconds: u64) -> RedisResult<()> {
+        REDIS_CONNECTION.lock().set_ex(key, value, seconds)
     }
 }
 
@@ -68,6 +74,12 @@ static REDIS_CLIENT: LazyLock<Client> = LazyLock::new(|| {
     let url = format!("redis://{authority}/{database}");
     Client::open(url)
         .expect("fail to create a connector to the redis server")
+});
+
+static REDIS_CONNECTION: LazyLock<Mutex<Connection>> = LazyLock::new(|| {
+    let connection = REDIS_CLIENT.get_connection()
+        .expect("fail to establish a connection to the redis server");
+    Mutex::new(connection)
 });
 ```
 这是Zino框架中推荐的使用模式：在配置文件里编写Redis连接信息[^password]，通过Lazy的全局变量初始化Client；

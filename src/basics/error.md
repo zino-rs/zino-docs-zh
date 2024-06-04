@@ -4,9 +4,10 @@
 
 1. 基于字符串将任意错误包装成同一类型；
 2. 支持错误溯源，并能追溯到原始错误；
-3. 支持[`tracing`]，自动记录错误信息。
+3. 支持传递自定义错误信息上下文类型；
+4. 支持[`tracing`]，自动记录错误信息。
 
-这三条需求对Zino框架至关重要，这也是为什么我们没有采用社区中流行的错误处理库，比如[`anyhow`]。
+这四条需求对Zino框架至关重要，这也是为什么我们没有采用社区中流行的错误处理库，比如[`anyhow`]。
 在实际应用开发中，我们往往并不会对具体的错误类型做不同的处理[^new_error]，而是直接返回错误消息，
 所以我们采取基于字符串的错误处理：
 ```rust
@@ -14,19 +15,33 @@
 pub struct Error {
     message: SharedString,
     source: Option<Box<Error>>,
+    context: Option<Box<dyn Any + Send>>,
 }
 ```
 其中[`SharedString`]是Zino中用来优化静态字符串处理的类型[^benchmark]。
 我们可以调用[`sources`]方法返回一个迭代器进行错误溯源，也可以使用[`root_source`]方法来追溯到原始错误。
 
+对于任意满足`Send + 'static`约束的类型，我们可以将它作为错误信息上下文来传递：
+```rust
+pub fn set_context<T: Send + 'static>(&mut self, context: T) {
+    self.context = Some(Box::new(context));
+}
+
+pub fn get_context<T: Send + 'static>(&self) -> Option<&T> {
+    self.context
+        .as_ref()
+        .and_then(|ctx| ctx.downcast_ref::<T>())
+}
+```
+
 对于任意实现了[`std::error::Error`] trait的错误类型，我们可以将它转换为[`Error`]类型：
 ```rust
-impl<E: std::error::Error> From<E> for Error {
-    #[inline]
+impl<E: error::Error + Send + 'static> From<E> for Error {
     fn from(err: E) -> Self {
         Self {
             message: err.to_string().into(),
             source: err.source().map(|err| Box::new(Self::new(err.to_string()))),
+            context: Some(Box::new(err)),
         }
     }
 }
